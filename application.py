@@ -1,6 +1,6 @@
 import os, json
 
-from flask import Flask, session, request, render_template
+from flask import Flask, session, render_template
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -25,7 +25,13 @@ db = scoped_session(sessionmaker(bind=engine))
 def index():
     return render_template("index.html")
 
+@app.route("/login")
+def login():
+    return render_template("index.html")
 
+@app.route("/logout")
+def logout():
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run()
